@@ -80,7 +80,6 @@
             text-align: center;
         }
         .tips strong { color: var(--primary-color); font-size: 1em; }
-
         /* 表格容器 - 移动端核心修复 */
         .table-container {
             background: white;
@@ -104,7 +103,6 @@
             flex-wrap: wrap;
             gap: 6px;
         }
-
         /* 表格 - 手机不换行、可横向滑动 */
         table {
             width: 100%;
@@ -141,7 +139,6 @@
         tr:hover {
             background-color: #eff6ff;
         }
-
         /* 底部footer */
         .project-footer {
             margin-top: 10px;
@@ -169,7 +166,6 @@
         .footer-content a:hover {
             text-decoration: underline;
         }
-
         /* 桌面版恢复布局 */
         @media (min-width: 768px) {
             .top-bar {
@@ -216,7 +212,6 @@
             </div>
         </div>
     </div>
-
     <div class="table-container">
         <div class="table-header">
             <span>📋 BIOS 数据库 (共 <span id="countDisplay">0</span> 条)</span>
@@ -236,7 +231,6 @@
             <tbody id="tableBody"></tbody>
         </table>
     </div>
-
     <div class="project-footer">
         <div class="footer-content">
             <span>🔗 数据源项目：</span>
@@ -244,7 +238,6 @@
             <span>(点击访问)</span>
         </div>
     </div>
-
     <script>
         let biosData = [];
         async function loadData() {
@@ -306,6 +299,14 @@
             const now = new Date();
             document.getElementById('timeDisplay').innerText = now.toLocaleTimeString();
         }, 1000);
+
+        // 新增：输入型号按回车查询
+        document.getElementById('queryModel').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+                searchBios();
+            }
+        });
+
         window.onload = loadData;
     </script>
     <script>
@@ -317,6 +318,5 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
 </body>
 </html>
